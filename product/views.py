@@ -3,20 +3,21 @@ from rest_framework.response import Response
 from .serializers import CategorySerializer, BrandSerializer, ProductSerializer
 from .models import Category, Brand, Product     
 from drf_spectacular.utils import extend_schema
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
-class CategoryViewSet(viewsets.ViewSet):
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
-    @extend_schema(responses=CategorySerializer)
-    def list(self,request):
-        serializer = CategorySerializer(self.queryset,many=True)
-        return Response(serializer.data)
 
-class BrandViewSet(viewsets.ViewSet):
+class BrandViewSet(viewsets.ModelViewSet):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
     queryset = Brand.objects.all()
 
-    @extend_schema(responses=BrandSerializer)
-    def list(self,request):
-        serializer = BrandSerializer(self.queryset,many=True)
-        return Response(serializer.data)
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    queryset = Product.objects.all()
