@@ -12,3 +12,11 @@ class CategoryViewSet(viewsets.ViewSet):
     def list(self,request):
         serializer = CategorySerializer(self.queryset,many=True)
         return Response(serializer.data)
+
+class BrandViewSet(viewsets.ViewSet):
+    queryset = Brand.objects.all()
+
+    @extend_schema(responses=BrandSerializer)
+    def list(self,request):
+        serializer = BrandSerializer(self.queryset,many=True)
+        return Response(serializer.data)
