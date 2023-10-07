@@ -1,2 +1,5 @@
 Django
 python-dotenv 1.0.0
+Django Rest Framework 3.14.0
+Pytest 7.4.2
+pytest-django==4.5.2
