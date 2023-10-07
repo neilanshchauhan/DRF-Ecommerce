@@ -4,3 +4,4 @@ Django Rest Framework 3.14.0
 Pytest 7.4.2
 pytest-django==4.5.2
 django-mptt==0.15.0
+drf-spectacular
